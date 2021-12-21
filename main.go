@@ -1,7 +1,13 @@
 package main
 
-import "fmt"
+import (
+	controllerssetup "kecapstore/controllers/setup"
+	modelssetup "kecapstore/models/setup"
+)
 
 func main() {
-	fmt.Println("Hello, World!")
+	modelssetup.ConnectDatabase()
+
+	controllerssetup.SetRouting()
+	controllerssetup.Run()
 }
