@@ -9,5 +9,6 @@ func main() {
 	modelssetup.ConnectDatabase()
 
 	controllerssetup.SetRouting()
+	controllerssetup.SetLoginRoutes()
 	controllerssetup.Run()
 }
