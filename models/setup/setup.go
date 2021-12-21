@@ -1,6 +1,8 @@
 package modelssetup
 
 import (
+	"kecapstore/models"
+
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )
@@ -15,6 +17,8 @@ func ConnectDatabase() {
 	if err != nil {
 		panic("failed to connect to database!")
 	}
+
+	database.AutoMigrate(&models.User{})
 
 	DB = database
 }
