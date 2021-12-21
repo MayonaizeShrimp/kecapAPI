@@ -1,8 +1,6 @@
-package controllerssetup
+package controllers
 
 import (
-	"kecapstore/controllers"
-
 	"github.com/gin-gonic/gin"
 )
 
@@ -15,7 +13,7 @@ func SetRouting() {
 func SetLoginRoutes() {
 	loginRoutes := router.Group("/api/login")
 	{
-		loginRoutes.GET("/", controllers.Login)
+		loginRoutes.POST("/", Login)
 	}
 }
 
