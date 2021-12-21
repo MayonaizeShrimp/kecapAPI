@@ -1,17 +1,13 @@
 package main
 
 import (
-	"net/http"
-
-	"github.com/gin-gonic/gin"
+	controllerssetup "kecapstore/controllers/setup"
+	modelssetup "kecapstore/models/setup"
 )
 
 func main() {
-	router := gin.Default()
+	modelssetup.ConnectDatabase()
 
-	router.GET("/", func(c *gin.Context) {
-		c.JSON(http.StatusOK, gin.H{"data": "hello world"})
-	})
-
-	router.Run()
+	controllerssetup.SetRouting()
+	controllerssetup.Run()
 }
