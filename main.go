@@ -1,13 +1,14 @@
 package main
 
 import (
-	controllerssetup "kecapstore/controllers/setup"
-	modelssetup "kecapstore/models/setup"
+	"kecapstore/controllers"
+	"kecapstore/models"
 )
 
 func main() {
-	modelssetup.ConnectDatabase()
+	models.ConnectDatabase()
 
-	controllerssetup.SetRouting()
-	controllerssetup.Run()
+	controllers.SetRouting()
+	controllers.SetLoginRoutes()
+	controllers.Run()
 }

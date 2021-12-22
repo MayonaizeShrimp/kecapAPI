@@ -1,4 +1,4 @@
-package modelssetup
+package models
 
 import (
 	"gorm.io/driver/mysql"
@@ -15,6 +15,8 @@ func ConnectDatabase() {
 	if err != nil {
 		panic("failed to connect to database!")
 	}
+
+	database.AutoMigrate(&User{})
 
 	DB = database
 }
