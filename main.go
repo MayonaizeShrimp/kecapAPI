@@ -10,5 +10,6 @@ func main() {
 
 	controllers.SetRouting()
 	controllers.SetLoginRoutes()
+	controllers.SetAPIRoutes()
 	controllers.Run()
 }

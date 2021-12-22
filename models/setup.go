@@ -17,6 +17,7 @@ func ConnectDatabase() {
 	}
 
 	database.AutoMigrate(&User{})
+	database.AutoMigrate(&Kecap{})
 
 	DB = database
 }
