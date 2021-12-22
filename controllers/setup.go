@@ -1,21 +1,17 @@
 package controllers
 
 import (
-	"net/http"
-
 	"github.com/gin-gonic/gin"
 )
 
 var router *gin.Engine
 
+//Initiate Gin
 func SetRouting() {
 	router = gin.Default()
-
-	router.GET("/", func(c *gin.Context) {
-		c.JSON(http.StatusOK, gin.H{"data": "hello world"})
-	})
 }
 
+//Set routes for login
 func SetLoginRoutes() {
 	loginRoutes := router.Group("/api/login")
 	{
@@ -23,17 +19,19 @@ func SetLoginRoutes() {
 	}
 }
 
+//set routes for API
 func SetAPIRoutes() {
 	api := router.Group("/api/kecap")
 	{
-		api.GET("/", getAll)
-		api.GET("/:id", get)
-		api.POST("/", insert)
-		api.PATCH("/", update)
-		api.DELETE("/", delete)
+		api.GET("/", getAll)    //select all
+		api.GET("/:id", get)    //select by id
+		api.POST("/", insert)   //create
+		api.PATCH("/", update)  //update
+		api.DELETE("/", delete) //delete
 	}
 }
 
+//Execute Gin in port 8080
 func Run() {
 	router.Run()
 }
